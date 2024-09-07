@@ -27,12 +27,28 @@ void resolve2x2(double matriz[2][3]){
     matriz[0][2] /= matriz[0][0];
     
     // arrumando o pivô da segunda linha
-    matriz[1][0] -= matriz[0][0];
-    matriz[1][1] -= matriz[0][1];
-    matriz[1][2] -= matriz[0][2];
+    matriz[1][0] -= (matriz[1][0] * matriz[0][0]);
+    matriz[1][1] -= (matriz[1][0] * matriz[0][1]);
+    matriz[1][2] -= (matriz[1][0] * matriz[0][2]);
     
-    // não sei o que esperar agora
+    matriz[1][1] /= matriz[1][1];
+    matriz[1][2] /= matriz[1][1];
     
+    // arrumar o de cima
+    matriz[0][1] -= matriz[1][1];
+    matriz[0][2] -= matriz[1][2];
     
-    
+    // pronto
+    printf("a: %.2lf\n", matriz[0][0]);
+    printf("b: %.2lf\n", matriz[1][1]);
 }
+
+
+
+
+
+
+
+
+
+
