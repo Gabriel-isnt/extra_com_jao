@@ -1,54 +1,11 @@
-double determinante2x2(double matriz[2][2]){
-    return (matriz[0][0] * matriz[1][1]) - (matriz[0][1] * matriz[1][0]); 
-}
+#ifndef FUNCOES_H
+#define FUNCOES_H
 
-double determinante3x3(double matriz[3][3]){
-    
-    double d1 = (matriz[0][0] * matriz[1][1] * matriz[2][2]);
-    double d2 = (matriz[0][1] * matriz[1][2] * matriz[2][0]);
-    double d3 = (matriz[0][2] * matriz[1][0] * matriz[2][1]); 
-    
-    double e1 = (matriz[0][2] * matriz[1][1] * matriz[2][0]);
-    double e2 = (matriz[0][0] * matriz[1][2] * matriz[2][1]);
-    double e3 = (matriz[0][1] * matriz[1][0] * matriz[2][2]);
-    
-    double direita = (d1 + d2 + d3);
-    double esquerda = (e1 + e2 + e3);
-    
-    return (direita - esquerda);
-}
-
-
-void resolve2x2(double matriz[2][3]){
-    
-    // garantindo o pivô da primeira
-    matriz[0][0] /= matriz[0][0]; 
-    matriz[0][1] /= matriz[0][0];
-    matriz[0][2] /= matriz[0][0];
-    
-    // arrumando o pivô da segunda linha
-    matriz[1][0] -= (matriz[1][0] * matriz[0][0]);
-    matriz[1][1] -= (matriz[1][0] * matriz[0][1]);
-    matriz[1][2] -= (matriz[1][0] * matriz[0][2]);
-    
-    matriz[1][1] /= matriz[1][1];
-    matriz[1][2] /= matriz[1][1];
-    
-    // arrumar o de cima
-    matriz[0][1] -= matriz[1][1];
-    matriz[0][2] -= matriz[1][2];
-    
-    // pronto
-    printf("a: %.2lf\n", matriz[0][0]);
-    printf("b: %.2lf\n", matriz[1][1]);
-}
+// Prototipos das funções dos arquivos
+float determinante2x2(float mat[2][2]);
+float determinante3x3(float mat[3][3]);
 
 
 
 
-
-
-
-
-
-
+#endif
